@@ -57,7 +57,7 @@ with col1:
     inclinacao = 15  # valor fixo em graus (remoção do controle deslizante)", 0.0, 30.0, 15.0)
     inclinacao_rad = np.radians(inclinacao)
     altura_total = (altura + subperf) / np.cos(inclinacao_rad)  # ajuste do comprimento do furo
-    afastamento = st.slider("Afastamento (m)", 1.0, 5.0, 1.5)
+    afastamento = st.slider("Afastamento (m)", 1.0, 6.5, 1.5)
     furos_linha = st.slider("Nº de Furos por Linha", 1, 8, 5)
     linhas = st.slider("Nº de Linhas de Furo", 1, 5, 4)
 
