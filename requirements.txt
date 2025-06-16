@@ -1,0 +1,7 @@
+streamlit
+numpy
+matplotlib
+fpdf
+io
+tempfile
+os
