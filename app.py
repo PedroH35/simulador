@@ -21,7 +21,7 @@ macicos = {
     "Rocha friável de baixa dureza": {"A": 3},
     "Rocha branda e pouco fraturada": {"A": 5},
     "Rocha dura e altamente fraturada": {"A": 10},
-    "Rocha altamente ddura e pouco fraturada": {"A": 12}    
+    "Rocha altamente dura e pouco fraturada": {"A": 12}    
 }
 
 # -----------------------------
