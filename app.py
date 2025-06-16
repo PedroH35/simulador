@@ -53,11 +53,11 @@ with col1:
     macico_tipo = st.selectbox("Tipo de Maciço Rochoso", list(macicos.keys()))
     A = macicos[macico_tipo]["A"]
     altura = st.slider("Altura do Banco (m)", 2.0, 15.0, 10.0)
-    subperf = st.slider("Subperfuração (m)", 0.0, 2.0, 0.5)
+    subperf = 0.6 #valor fixo em m (8*diâmetro)
     inclinacao = 15  # valor fixo em graus (remoção do controle deslizante)", 0.0, 30.0, 15.0)
     inclinacao_rad = np.radians(inclinacao)
     altura_total = (altura + subperf) / np.cos(inclinacao_rad)  # ajuste do comprimento do furo
-    afastamento = st.slider("Afastamento (B) (m)", 1.0, 5.0, 1.5)
+    afastamento = st.slider("Afastamento (m)", 1.0, 5.0, 1.5)
     furos_linha = st.slider("Nº de Furos por Linha", 1, 8, 5)
     linhas = st.slider("Nº de Linhas de Furo", 1, 5, 4)
 
