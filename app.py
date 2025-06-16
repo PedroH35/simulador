@@ -44,7 +44,7 @@ def calcular_x50(A, K, Qe):
 # Interface Streamlit
 # -----------------------------
 st.set_page_config(page_title="Simulador de Detonação", layout="wide")
-st.title("Simulador para Análise de Eficiência do Plano de Fogo no Desmonte de Rochas")
+st.title("MODELAGEM DA INFLUÊNCIA DO PLANO DE FOGO NA FRAGMENTAÇÃO EM DESMONTE DE ROCHAS")
 
 col1, col2 = st.columns(2)
 
