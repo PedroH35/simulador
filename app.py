@@ -105,21 +105,26 @@ with col2:
     #n = max(n, 0.5)  # garantir valor positivo
 
     # Gráfico de Rosin-Rammler (ajustado com X em mm e escala log)
-    st.subheader("Distribuição Granulométrica (Rosin-Rammler)")
+    st.subheader("Distribuição Granulométrica para Diferentes Maciços")
+    x_mm = np.logspace(0, 4, 100)  # de 1 mm a 1000 mm
+    fig2, ax = plt.subplots()
 
-    x_mm = np.logspace(0, 3, num=50, endpoint=True, base=10.0)  # peneiras entre 1 mm e 200 mm  # abertura da peneira em mm
-    R = np.exp(-0.693 * (x_mm / X50_mm)**n)
-    P = 100 * (1 - R)
+    for nome, props in macicos.items():
+        A = props["A"]
+        X50 = calcular_x50(A, K, Qe) * 10  # em mm
+        n = 1.5  # índice fixo de uniformidade
+        R = np.exp(-0.693 * (x_mm / X50)**n)
+        P = 100 * (1 - R)
+        ax.plot(x_mm, P, label=nome)
 
-    fig2, ax2 = plt.subplots()
-    ax2.plot(x_mm, P, marker='o', linestyle='-')
-    ax2.set_xscale("log")
-    ax2.set_xlabel("Abertura da peneira (mm) [escala log]")
-    ax2.set_ylabel("% Passante")
-    ax2.set_title("Curva de Distribuição Granulométrica (Rosin-Rammler)")
-    ax2.grid(True, which="both", linestyle='--', linewidth=0.5)
+    ax.set_xscale("log")
+    ax.set_xlabel("Abertura da peneira (mm)")
+    ax.set_ylabel("% Passante")
+    ax.set_title("Curvas Rosin-Rammler por Tipo de Maciço")
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    ax.grid(True, which="both", linestyle='--', linewidth=0.5)
     st.pyplot(fig2)
-
+    
 def gerar_pdf(fig_fogo, fig_granulo):
     pdf = FPDF()
     pdf.add_page()
