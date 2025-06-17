@@ -21,7 +21,7 @@ macicos = {
     "Rocha friável de baixa dureza": {"A": 3},
     "Rocha branda e pouco fraturada": {"A": 5},
     "Rocha dura e altamente fraturada": {"A": 10},
-    "Rocha altamente dura e pouco fraturada": {"A": 12}    
+    "Rocha altamente ddura e pouco fraturada": {"A": 12}    
 }
 
 # -----------------------------
@@ -44,7 +44,7 @@ def calcular_x50(A, K, Qe):
 # Interface Streamlit
 # -----------------------------
 st.set_page_config(page_title="Simulador de Detonação", layout="wide")
-st.title("MODELAGEM DA INFLUÊNCIA DO PLANO DE FOGO NA FRAGMENTAÇÃO EM DESMONTE DE ROCHAS")
+st.title("Simulador para Análise de Eficiência do Plano de Fogo no Desmonte de Rochas")
 
 col1, col2 = st.columns(2)
 
@@ -57,7 +57,7 @@ with col1:
     inclinacao = 15  # valor fixo em graus (remoção do controle deslizante)", 0.0, 30.0, 15.0)
     inclinacao_rad = np.radians(inclinacao)
     altura_total = (altura + subperf) / np.cos(inclinacao_rad)  # ajuste do comprimento do furo
-    afastamento = st.slider("Afastamento (m)", 1.0, 6.5, 1.5)
+    afastamento = st.slider("Afastamento (B) (m)", 1.0, 5.0, 1.5)
     furos_linha = st.slider("Nº de Furos por Linha", 1, 8, 5)
     linhas = st.slider("Nº de Linhas de Furo", 1, 5, 4)
 
@@ -124,7 +124,7 @@ with col2:
     ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
     ax.grid(True, which="both", linestyle='--', linewidth=0.5)
     st.pyplot(fig2)
-    
+
 def gerar_pdf(fig_fogo, fig_granulo):
     pdf = FPDF()
     pdf.add_page()
