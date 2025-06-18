@@ -21,7 +21,7 @@ macicos = {
     "Rocha friável de baixa dureza": {"A": 3},
     "Rocha branda e pouco fraturada": {"A": 5},
     "Rocha dura e altamente fraturada": {"A": 10},
-    "Rocha altamente ddura e pouco fraturada": {"A": 12}    
+    "Rocha altamente dura e pouco fraturada": {"A": 12}    
 }
 
 # -----------------------------
@@ -92,7 +92,7 @@ with col2:
             y = i * afastamento
             ax.plot(x, y, 'ro')
     ax.set_aspect('equal')
-    ax.set_title("Plano de Fogo (Top View)")
+    ax.set_title("Plano de Fogo (malha)")
     ax.set_xlabel("Espaçamento entre furos (m)")
     ax.set_ylabel("Afastamento entre linhas (m)")
     st.pyplot(fig)
