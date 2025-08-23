@@ -52,7 +52,6 @@ st.set_page_config(page_title="Simulador de Detonação", layout="wide")
 st.title("MODELAGEM DA INFLUÊNCIA DO PLANO DE FOGO NA FRAGMENTAÇÃO EM DESMONTE DE ROCHAS")
 
 col1, col2 = st.columns(2)
-mal
 with col1:
     explosivo_tipo = st.selectbox("Tipo de Explosivo", list(explosivos.keys()))
     macico_tipo = st.selectbox("Tipo de Maciço Rochoso", list(macicos.keys()))
@@ -173,6 +172,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
