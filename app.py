@@ -111,8 +111,8 @@ with col2:
 
     for nome, props in macicos.items():
         X50 = calcular_x50(A, K, Qe) * 10  # em mm
-        n = calcular_n(afastamento,D,S,W,L,altura) 
-        R = np.exp(-0.693 * (x_mm / X50)**n)
+        N = calcular_n(afastamento,D,S,W,L,altura) 
+        R = np.exp(-0.693 * (x_mm / X50)**N)
         P = 100 * (1 - R)
         ax.plot(x_mm, P, label=nome)
 
@@ -167,6 +167,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
