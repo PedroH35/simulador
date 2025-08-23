@@ -119,8 +119,8 @@ with col2:
         S_temp = calcular_espacamento(altura, B)  # recalcula espaçamento p/ cada malha
         V_temp = S_temp * B * altura
         K_temp = Qe / V_temp
-        X50 = calcular_x50(A, K, Qe) * 10  # em mm
-        R = np.exp(-0.693 * (x_mm / X50)**n)
+        X50_temp = calcular_x50(A, K, Qe) * 10  # em mm
+        R = np.exp(-0.693 * (x_mm / X50_temp)**n)
         P = 100 * (1 - R)
         ax.plot(x_mm, P, label=f"Malha {nome}")
 
@@ -175,6 +175,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
