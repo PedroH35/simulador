@@ -110,9 +110,8 @@ with col2:
     fig2, ax = plt.subplots()
 
     for nome, props in macicos.items():
-        A = props["A"]
         X50 = calcular_x50(A, K, Qe) * 10  # em mm
-        n = 1.5  # índice fixo de uniformidade
+        n = calcular_n(afastamento,D,S,W,L,altura) 
         R = np.exp(-0.693 * (x_mm / X50)**n)
         P = 100 * (1 - R)
         ax.plot(x_mm, P, label=nome)
@@ -168,5 +167,6 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
