@@ -101,8 +101,7 @@ with col2:
     D = diametro  # mm
     W = 0.1  # desvio médio do furo [m], valor arbitrário
     L = altura_total  # comprimento da carga ≈ altura do furo
-    n = (2.2 - 14 * (afastamento / D)) * ((1 + (S / afastamento) / 2)**0.5) * ((1 - (W / afastamento)) * (L / altura))
-    N = calcular_n(afastamento,D,S,W,L,altura) 
+    n = (2.2 - 14 * (afastamento / D)) * ((1 + (S / afastamento) / 2)**0.5) * ((1 - (W / afastamento)) * (L / altura)) 
     #n = max(n, 0.5)  # garantir valor positivo
 
     # Gráfico de Rosin-Rammler (ajustado com X em mm e escala log)
@@ -112,8 +111,7 @@ with col2:
 
     for nome, props in macicos.items():
         X50 = calcular_x50(A, K, Qe) * 10  # em mm
-        N = calcular_n(afastamento,D,S,W,L,altura) 
-        R = np.exp(-0.693 * (x_mm / X50)**N)
+        R = np.exp(-0.693 * (x_mm / X50)**n)
         P = 100 * (1 - R)
         ax.plot(x_mm, P, label=nome)
 
@@ -168,6 +166,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
