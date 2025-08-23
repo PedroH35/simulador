@@ -25,7 +25,7 @@ macicos = {
 }
 
 malha = {
-    "Aberta": {"B": 6,5},
+    "Aberta": {"B": 6.5},
     "Fechada": {"B": 3}
 }
 
@@ -172,6 +172,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
