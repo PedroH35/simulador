@@ -102,6 +102,7 @@ with col2:
     W = 0.1  # desvio médio do furo [m], valor arbitrário
     L = altura_total  # comprimento da carga ≈ altura do furo
     n = (2.2 - 14 * (afastamento / D)) * ((1 + (S / afastamento) / 2)**0.5) * ((1 - (W / afastamento)) * (L / altura))
+    N = calcular_n(afastamento,D,S,W,L,altura) 
     #n = max(n, 0.5)  # garantir valor positivo
 
     # Gráfico de Rosin-Rammler (ajustado com X em mm e escala log)
@@ -167,6 +168,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
