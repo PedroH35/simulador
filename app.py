@@ -24,6 +24,11 @@ macicos = {
     "Rocha altamente dura e pouco fraturada": {"A": 12}    
 }
 
+malha = {
+    "Aberta": {"B"=6,5},
+    "Fechada": {"B"=3}
+}
+
 # -----------------------------
 # Funções de cálculo
 # -----------------------------
@@ -109,7 +114,8 @@ with col2:
     x_mm = np.logspace(0, 4, 100)  # de 1 mm a 1000 mm
     fig2, ax = plt.subplots()
 
-    for nome, props in macicos.items():
+    for nome, props in malha.items():
+        B = props["B"]
         X50 = calcular_x50(A, K, Qe) * 10  # em mm
         R = np.exp(-0.693 * (x_mm / X50)**n)
         P = 100 * (1 - R)
@@ -166,6 +172,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
