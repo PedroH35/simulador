@@ -110,8 +110,8 @@ with col2:
     #n = max(n, 0.5)  # garantir valor positivo
 
     # Gráfico de Rosin-Rammler (ajustado com X em mm e escala log)
-    st.subheader("Distribuição Granulométrica para Diferentes Maciços")
-    x_mm = np.logspace(0, 4, 100)  # de 1 mm a 1000 mm
+    st.subheader("Curvas de Rosin-Rammler (Malhas Aberta e Fechada)")
+    x_mm = np.logspace(0, 4, 200)  # de 1 mm a 10000 mm
     fig2, ax = plt.subplots()
 
     for nome, props in malha.items():
@@ -119,7 +119,7 @@ with col2:
         S_temp = calcular_espacamento(altura, B)  # recalcula espaçamento p/ cada malha
         V_temp = S_temp * B * altura
         K_temp = Qe / V_temp
-        X50_temp = calcular_x50(A, K, Qe) * 10  # em mm
+        X50_temp = calcular_x50(A, K_temp, Qe) * 10  # em mm
         R = np.exp(-0.693 * (x_mm / X50_temp)**n)
         P = 100 * (1 - R)
         ax.plot(x_mm, P, label=f"Malha {nome}")
@@ -128,7 +128,7 @@ with col2:
     ax.set_xlabel("Abertura da peneira (mm)")
     ax.set_ylabel("% Passante")
     ax.set_title("Curvas Rosin-Rammler")
-    ax.legend(bbox_to_anchor=(1.05, 1), loc='lower left')
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
     ax.grid(True, which="both", linestyle='--', linewidth=0.5)
     st.pyplot(fig2)
 
@@ -175,6 +175,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
