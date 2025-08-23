@@ -52,7 +52,7 @@ st.set_page_config(page_title="Simulador de Detonação", layout="wide")
 st.title("MODELAGEM DA INFLUÊNCIA DO PLANO DE FOGO NA FRAGMENTAÇÃO EM DESMONTE DE ROCHAS")
 
 col1, col2 = st.columns(2)
-
+mal
 with col1:
     explosivo_tipo = st.selectbox("Tipo de Explosivo", list(explosivos.keys()))
     macico_tipo = st.selectbox("Tipo de Maciço Rochoso", list(macicos.keys()))
@@ -125,8 +125,8 @@ with col2:
     ax.set_xscale("log")
     ax.set_xlabel("Abertura da peneira (mm)")
     ax.set_ylabel("% Passante")
-    ax.set_title("Curvas Rosin-Rammler por Tipo de Maciço")
-    ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    ax.set_title("Curvas Rosin-Rammler")
+    ax.legend(bbox_to_anchor=(1.05, 1), loc='lower left')
     ax.grid(True, which="both", linestyle='--', linewidth=0.5)
     st.pyplot(fig2)
 
@@ -173,6 +173,7 @@ if st.button("Gerar PDF"):
         file_name="relatorio_plano_fogo.pdf",
         mime="application/pdf"
     )
+
 
 
 
